@@ -2,7 +2,8 @@ class PublishersController < ApplicationController
   before_action :load_publisher, except: [:index, :new, :create]
 
   def index
-    @publishers = Publisher.info_publisher.order(id: :asc).page(params[:page]).per(Settings.perpage)
+    @publishers = Publisher.info_publisher.order(id: :asc).
+      page(params[:page]).per(Settings.perpage)
   end
 
   def show

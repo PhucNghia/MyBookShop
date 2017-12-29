@@ -17,9 +17,11 @@ class BookCartsController < ApplicationController
   end
 
   def create
-    @book_cart = Book.new book_cart_params
+    @cart = current_cart
+    book = Book.find(params[:book_id])
+    @book_cart = @cart.add_book(book.id)
     if @book_cart.save
-      redirect_to @book_cart
+      redirect_to @book_cart.cart
     else
       render :new
     end

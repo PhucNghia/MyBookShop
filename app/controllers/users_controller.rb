@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :load_user, except: [:index, :new, :create]
+
   def index
     @users = User.info_user.order(id: :asc).page(params[:page]).per(Settings.perpage)
   end
@@ -48,15 +49,15 @@ class UsersController < ApplicationController
 
   private
 
-    def load_user
-      @user = User.find_by_id params[:id]
-      return if @user
-      flash[:danger] = t "controller.users_controller.no_account"
-      redirect_to root_path
-    end
+  def load_user
+    @user = User.find_by_id params[:id]
+    return if @user
+    flash[:danger] = t "controller.users_controller.no_account"
+    redirect_to root_path
+  end
 
-    def user_params
-      params.require(:user).permit :name, :password, :password_confirmation,
-        :email, :phone, :address, :role
-    end
+  def user_params
+    params.require(:user).permit :name, :password, :password_confirmation,
+      :email, :phone, :address, :role
+  end
 end

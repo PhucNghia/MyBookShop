@@ -8,10 +8,11 @@ $red-backround-hover: red;
 $red-color-h1: red;
 $black-navbar: black;
 $gray-table: gray;
+$white-nav-a: white;
 
 /*header*/
 .nav a{
-  color: white !important;
+  color: $white-nav-a !important;
 }
 .navbar{
   background: $bue-backround-nav !important;

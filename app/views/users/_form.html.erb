@@ -5,7 +5,7 @@
         <div id="error_explanation">
           <div class="alert alert-danger">
            <%= t("users.regform.error_messages") %>
-              <%= user.errors.count %> <%= t("users.regform.error") %>.
+              <%= user.errors.count %> <%= t("users.form.error") %>.
           </div>
           <ul>
             <% user.errors.full_messages.each do |message| %>
@@ -46,7 +46,7 @@
       </div>
       <% if @submit %>
         <%= form.submit t("users.submit"), class: "btn btn-primary" %>
-        <p>Ban da co <b><i><%= link_to t("tai khoan"), login_path %></i></b></p>
+        <p>Ban da co <b><i><%= link_to t("users.form.account"), login_path %></i></b></p>
       <% else %>
         <%= form.submit t("users.update"), class: "btn btn-primary" %>
       <% end %>

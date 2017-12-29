@@ -1,5 +1,6 @@
 class BooksController < ApplicationController
   before_action :load_book, except: [:index, :new, :create]
+  before_action :join_book, only: [:index, :show]
 
   def index
     @books = Book.info_book.order(id: :asc).page(params[:page]).per(Settings.perpage)
@@ -52,7 +53,12 @@ class BooksController < ApplicationController
     redirect_to root_path
   end
 
+  def join_book
+    @joinbook = BookAuthor.joins(:book, :author)
+  end
+
   def book_params
-    params.require(:book).permit :name, :picture, :price, :author_id, :status, :categories_id, :publisher_id
+    params.require(:book).permit :name, :picture, :price, :author_id, :status,
+     :categories_id, :publisher_id
   end
 end

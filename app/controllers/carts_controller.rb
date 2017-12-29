@@ -29,6 +29,9 @@ class CartsController < ApplicationController
   end
 
   def destroy
+    @cart = current_cart
+    @cart.destroy
+    session[:cart_id] = nil
     if @cart.destroy
       redirect_to carts_url
     else
