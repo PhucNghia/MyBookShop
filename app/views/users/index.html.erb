@@ -1,0 +1,9 @@
+<p id="notice"><%= notice %></p>
+
+<h1><%= t("users.list_users") %></h1>
+
+<%= render "index", user: @user %>
+
+<br>
+
+<%= link_to t("users.add_user"), new_user_path %>
