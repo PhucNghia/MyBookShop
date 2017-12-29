@@ -1,111 +1,27 @@
 <%= render "layouts/left" %>
 <div class="mid">
-<ul class="list1 clearfix">
-  <li>
-    <div class="list1img">
-    <%= link_to image_tag("image01.jpg"), "#" %>
-    </div>
-    <div class="list1a1">
-    <a href="#" title="Phụ Nữ Đâu Chỉ Có Tình Yêu">Phụ Nữ Đâu Chỉ Có Tình Yêu</a>
-    </div>
 
-    <div class="priceold">73,000 đ</div>
-    <div class="phathanh">Phát hành: <b>27-12-2017</b></div>
-    <br>
-    <p align="center"><a href="#" class="buy1 listprocart">Đặt hàng</a></p>
-  </li>
-  <li>
-    <div class="list1img">
-    <%= link_to image_tag("image02.jpg"), "#" %>
-    </div>
-    <div class="list1a1">
-    <a href="#" title="Phụ Nữ Đâu Chỉ Có Tình Yêu ">Phụ Nữ Đâu Chỉ Có Tình Yêu</a>
-    </div>
-
-    <div class="priceold">73,000 đ</div>
-    <div class="phathanh">Phát hành: <b>27-12-2017</b></div>
-    <br>
-    <p align="center"><a href="#" class="buy1 listprocart">Đặt hàng</a></p>
-  </li>
-  <li>
-    <div class="list1img">
-    <%= link_to image_tag("image03.jpg"), "#" %>
-    </div>
-    <div class="list1a1">
-    <a href="#" title="Phụ Nữ Đâu Chỉ Có Tình Yêu">Phụ Nữ Đâu Chỉ Có Tình Yêu</a>
-    </div>
-
-    <div class="priceold">73,000 đ</div>
-    <div class="phathanh">Phát hành: <b>27-12-2017</b></div>
-    <br>
-    <p align="center"><a href="#" class="buy1 listprocart">Đặt hàng</a></p>
-  </li>
-  <li>
-    <div class="list1img">
-    <%= link_to image_tag("image01.jpg"), "#" %>
-    </div>
-    <div class="list1a1">
-    <a href="#" title="Phụ Nữ Đâu Chỉ Có Tình Yêu">Phụ Nữ Đâu Chỉ Có Tình Yêu</a>
-    </div>
-
-    <div class="priceold">73,000 đ</div>
-    <div class="phathanh">Phát hành: <b>27-12-2017</b></div>
-    <br>
-    <p align="center"><a href="#" class="buy1 listprocart">Đặt hàng</a></p>
-  </li>
-  </ul>
-  <ul class="list1 clearfix">
-  <li>
-    <div class="list1img">
-    <%= link_to image_tag("image02.jpg"), "#" %>
-    </div>
-    <div class="list1a1">
-    <a href="#" title="Phụ Nữ Đâu Chỉ Có Tình Yêu">Phụ Nữ Đâu Chỉ Có Tình Yêu</a>
-    </div>
-
-    <div class="priceold">73,000 đ</div>
-    <div class="phathanh">Phát hành: <b>27-12-2017</b></div>
-    <br>
-    <p align="center"><a href="#" class="buy1 listprocart">Đặt hàng</a></p>
-  </li>
-  <li>
-    <div class="list1img">
-    <%= link_to image_tag("image03.jpg"), "#" %>
-    </div>
-    <div class="list1a1">
-    <a href="#" title="Phụ Nữ Đâu Chỉ Có Tình Yêu">Phụ Nữ Đâu Chỉ Có Tình Yêu</a>
-    </div>
-
-    <div class="priceold">73,000 đ</div>
-    <div class="phathanh">Phát hành: <b>27-12-2017</b></div>
-    <br>
-    <p align="center"><a href="#" class="buy1 listprocart">Đặt hàng</a></p>
-  </li>
-  <li>
-    <div class="list1img">
-    <%= link_to image_tag("image01.jpg"), "#" %>
-    </div>
-    <div class="list1a1">
-    <a href="#" title="Phụ Nữ Đâu Chỉ Có Tình Yêu">Phụ Nữ Đâu Chỉ Có Tình Yêu</a>
-    </div>
-
-    <div class="priceold">73,000 đ</div>
-    <div class="phathanh">Phát hành: <b>27-12-2017</b></div>
-    <br>
-    <p align="center"><a href="#" class="buy1 listprocart">Đặt hàng</a></p>
-  </li>
-  <li>
-    <div class="list1img">
-    <%= link_to image_tag("image03.jpg"), "#" %>
-    </div>
-    <div class="list1a1">
-    <a href="#" title="Phụ Nữ Đâu Chỉ Có Tình Yêu">Phụ Nữ Đâu Chỉ Có Tình Yêu</a>
-    </div>
-
-    <div class="priceold">73,000 đ</div>
-    <div class="phathanh">Phát hành: <b>27-12-2017</b></div>
-    <br>
-    <p align="center"><a href="#" class="buy1 listprocart">Đặt hàng</a></p>
-  </li>
-  </ul>
+    <ul class="list1 clearfix">
+        <% @books.each do |book| %>
+            <li>
+                <div class="list1img">
+                    <%= link_to image_tag(book.picture), "#" %>
+                </div>
+                <div class="list1a1">
+                    <a href="#">
+                        <b><%= book.name %></b>
+                    </a>
+                </div>
+                <div class="priceold"><b><%= t "static_pages.price" %></b></div>
+                <div class="publishers"><b><%= t "static_pages.publisher" %></b> </div>
+                <div class="category"><b><%= t "static_pages.category" %></b></div>
+                <br>
+                <%= button_to t("static_pages.add_to_cart"), book_carts_path(book_id: book.id),
+                    class: "btn btn-primary" %>
+                <br><br>
+            </li>
+        <% end %>
+    </ul>
 </div>
+<%= paginate @books, theme: "twitter-bootstrap-3" %>
+
