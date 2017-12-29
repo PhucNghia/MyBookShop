@@ -1,0 +1,46 @@
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+
+/* mixins, variables, etc. */
+
+$bue-backround-nav: #36648B;
+$red-backround-hover: red;
+$red-color-h1: red;
+$black-navbar: black;
+$gray-table: gray;
+
+/*header*/
+.nav a{
+  color: white !important;
+}
+.navbar{
+  background: $bue-backround-nav !important;
+}
+.dropdown-menu{
+  background: $bue-backround-nav !important;
+}
+.nav ul li:hover a{
+  background: $red-backround-hover;
+}
+img{
+  margin-top: -15px;
+  width: 60px;
+  height: 50px;
+}
+
+/*left*/
+.left{
+  padding-right: 10px;
+}
+
+/*user*/
+h1{
+  color: $red-color-h1;
+  text-align: center;
+}
+.navbar{
+  background: $black-navbar;
+}
+table, th, table tr td{
+  border: 2px solid $gray-table !important;
+}
