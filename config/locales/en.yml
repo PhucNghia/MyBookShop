@@ -4,6 +4,8 @@ en:
       no_account: "Không tồn tại tài khoản này"
       success_signup: "Đăng ký thành công"
       success_update: "Cập nhật thành công"
+      success_delete: "Đã xóa người dùng"
+      danger_cant_delete: "Không thể xóa tài khoản này"
     sessions_controller:
       error_login: "User/password không đúng"
   layouts:
@@ -15,6 +17,9 @@ en:
       settings: "Cài đặt"
       register: "Đăng ký"
       log_out: "Thoát"
+      manage: "Quản lý"
+      users: "Quản lý người dùng"
+      books: "Quản lý sách"
     left:
       category: DANH MỤC SÁCH
       literature: "Sách văn học"
@@ -51,6 +56,10 @@ en:
     confirm_delete: "Bạn có chắc chắn xóa người dùng không?"
     create_user: "Đăng ký tài khoản"
     submit: "Đăng ký"
+    password_confirm: "Nhập lại mật khẩu"
+    role_admin: "Quản trị viên"
+    role_user: "Người dùng"
+    option: "Tùy chọn"
   authors:
     show: "Hiển thị"
     back: "Quay lại"

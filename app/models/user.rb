@@ -10,4 +10,5 @@ class User < ApplicationRecord
   validates :phone, length: {in: Settings.min_phone..Settings.max_phone}, presence: true,
     format: {with: VALID_PHONE_REGEX}
   validates :address, length: {maximum: Settings.size_address}, presence: true
+  scope :info_user, ->{select(:id, :name, :email, :phone, :address, :role )}
 end

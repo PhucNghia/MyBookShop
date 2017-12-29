@@ -1,9 +1,9 @@
 class UsersController < ApplicationController
 
-  before_action :load_user, only: [:show, :edit, :update]
+  before_action :load_user, only: [:show, :edit, :update, :destroy]
 
   def index
-    @users = User.all
+    @users = User.info_user.order('id ASC').page(params[:page]).per(Settings.perpage)
   end
 
   def show
@@ -38,6 +38,16 @@ class UsersController < ApplicationController
     end
   end
 
+  def destroy
+    if @user.destroy
+      flash[:success] = t "controller.users_controller.success_delete"
+      redirect_to users_url
+    else
+      flash[:danger] = t "controller.users_controller.cant_delete"
+      render :index
+    end
+  end
+
   private
 
     def load_user
@@ -49,6 +59,6 @@ class UsersController < ApplicationController
 
     def user_params
       params.require(:user).permit :name, :password, :password_confirmation,
-        :email, :phone, :address
+        :email, :phone, :address, :role
     end
 end
