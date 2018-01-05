@@ -1,0 +1,7 @@
+size_name: 255
+size_pass: 50
+min_email: 4
+max_email: 100
+min_phone: 8
+max_phone: 15
+size_address: 255
