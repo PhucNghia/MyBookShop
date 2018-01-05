@@ -1,33 +1,47 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  layouts:
+    header:
+      about: "Giới thiệu"
+      contact: "Liên hệ"
+      seach: "Tim kiếm"
+      signin: "Đăng nhập"
+      profile: "Thông tin tài khoản"
+      settings: "Cài đặt"
+      register: "Đăng ký"
+      log_out: "Thoát"
+    left:
+      category: DANH MỤC SÁCH
+      literature: "Sách văn học"
+      economic: "Sách kinh tế"
+      comic: "Truyện tranh"
+      math: "Sách toán học"
+      novel: "Tiểu thuyết"
+      cart: "Giỏ hàng"
+      seach: "Tìm kiếm"
+  users:
+    regform:
+      error_messages: "Có"
+      error: "lỗi, mời bạn nhập lại"
+    list_users: "Danh sách người dùng"
+    name: "Tên"
+    password: "Mật khẩu"
+    email: "Email"
+    phone: "Số điện thoại"
+    address: "Địa chỉ"
+    role: "Vai trò"
+    back: "Quay lại"
+    show: "Hiển thị"
+    edit: "Sửa"
+    destroy: "Xóa"
+    add_user: "Thêm người dùng"
+    confirm_delete: "Bạn có chắc chắn xóa người dùng không?"
+    create_user: "Đăng ký tài khoản"
+  authors:
+    show: "Hiển thị"
+    back: "Quay lại"
+    edit_author: "Sửa tác gỉa"
+    edit: "Sửa"
+    destroy: "Xóa"
+    add: "Thêm tác gỉa"
+    confirm_delete: "Bạn có chắc chắn xóa tác gỉa không?"
+    add_author: "Thêm tác gỉa"
