@@ -1,28 +1,32 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
+  <strong><%= t "users.name" %>:</strong>
   <%= @user.name %>
 </p>
 
 <p>
-  <strong>Password:</strong>
-  <%= @user.password %>
-</p>
-
-<p>
-  <strong>Email:</strong>
+  <strong><%= t "users.email" %>:</strong>
   <%= @user.email %>
 </p>
 
 <p>
-  <strong>Phone:</strong>
+  <strong><%= t "users.phone" %>:</strong>
   <%= @user.phone %>
 </p>
 
 <p>
-  <strong>Address:</strong>
+  <strong><%= t "users.address" %>:</strong>
   <%= @user.address %>
+</p>
+
+<p>
+  <strong><%= t "users.role" %>:</strong>
+  <% if @user.role == 1%>
+    <td><%= t "users.role_admin"  %></td>
+  <% else %>
+    <td><%= t "users.role_user"  %></td>
+  <% end %>
 </p>
 
 <%= link_to t("users.edit1"), edit_user_path(@user) %> |
