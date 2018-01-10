@@ -17,4 +17,9 @@ module SessionsHelper
     session.delete :user_id
     @current_user = nil
   end
+
+  def user_admin
+    return if current_user.role?
+    redirect_to root_path
+  end
 end

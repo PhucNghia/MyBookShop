@@ -1,5 +1,8 @@
 class UsersController < ApplicationController
+
   before_action :load_user, except: [:index, :new, :create]
+  before_action :user_admin, only: [:index, :destroy]
+
   def index
     @users = User.info_user.order(id: :asc).page(params[:page]).per(Settings.perpage)
   end
@@ -20,7 +23,7 @@ class UsersController < ApplicationController
     if @user.save
       logn_in @user
       flash[:success] = t "controller.users_controller.success_signup"
-      redirect_to @user
+      redirect_to root_path
     else
       render :new
     end

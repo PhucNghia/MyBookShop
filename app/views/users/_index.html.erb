@@ -22,9 +22,10 @@
         <% else %>
           <td><%= t "users.role_user"  %></td>
         <% end %>
-        <td><%= link_to t("users.show"), user %></td>
-        <td><%= link_to t("users.edit1"), edit_user_path(user) %></td>
-        <td><%= link_to t("users.destroy"), user, method: :delete, data: {confirm: t("users.confirm_delete")} %></td>
+        <td><%= link_to image_tag("show.png"), user, class: "option" %></td>
+        <td><%= link_to image_tag("edit.png"), edit_user_path(user), class: "option" %></td>
+        <td><%= link_to image_tag("delete.png"), user, class: "option",
+          method: :delete, data: {confirm: t("users.confirm_delete")} %></td>
       </tr>
     <% end %>
   </tbody>
