@@ -10,7 +10,56 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171229150012) do
+ActiveRecord::Schema.define(version: 20180108191457) do
+
+  create_table "authors", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "book_authors", force: :cascade do |t|
+    t.integer "book_id"
+    t.integer "author_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "book_carts", force: :cascade do |t|
+    t.integer "cart_id"
+    t.integer "book_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "quantity", default: 1
+  end
+
+  create_table "books", force: :cascade do |t|
+    t.string "name"
+    t.string "picture"
+    t.float "price"
+    t.boolean "status"
+    t.integer "category_id"
+    t.integer "publisher_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "carts", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "publishers", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "name"

@@ -46,6 +46,7 @@
       </div>
       <% if @submit %>
         <%= form.submit t("users.submit"), class: "btn btn-primary" %>
+        <p>Ban da co <b><i><%= link_to t("tai khoan"), login_path %></i></b></p>
       <% else %>
         <%= form.submit t("users.update"), class: "btn btn-primary" %>
       <% end %>

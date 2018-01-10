@@ -1,5 +1,27 @@
 en:
   controller:
+    authors_controller:
+      create_author: "Thêm tác giả thành công"
+      update_author: "Cập nhật tác giả thành công"
+      delete_author: "Xóa tác giả thành công"
+      no_find_author: "Không tìm thấy tác giả "
+    books_controller:
+      create_book: "Thêm sách thành công"
+      update_book: "Cập nhật sách thành công"
+      delete_book: "Xóa sách thành công"
+      no_find_book: "Không tìm thấy sách"
+    carts_controller:
+      no_find_cart: "Không tìm thấy bảng giỏ hàng"
+    categories_controller:
+      create_category: "Thêm thể loại thành công"
+      update_category: "Cập nhật thể loại thành công"
+      delete_category: "Xóa thể loại thành công"
+      no_find_category: "Không tìm thấy thể loại"
+    publishers_controller:
+      create_publisher: "Thêm NXB thành công"
+      update_publisher: "Cập nhật NXB thành công"
+      delete_publisher: "Xóa NXB thành công"
+      no_fine_publisher: "Không tìm thấy NXB"
     users_controller:
       no_account: "Không tồn tại tài khoản này"
       success_signup: "Đăng ký thành công"
@@ -29,12 +51,21 @@ en:
       novel: "Tiểu thuyết"
       cart: "Giỏ hàng"
       seach: "Tìm kiếm"
+    footer:
+      home: "Trang chủ"
+      about: "Giới thiệu"
+      contact: "Liên hệ"
   sessions:
     login: "Đăng nhập"
     address_email: "Nhập địa chỉ email"
     email: "Nhập email"
     pass: "Nhập mật khẩu"
     password: "Mật khẩu"
+  static_pages:
+    price: "Giá: "
+    category: "Thể loại: "
+    publisher: "NXB: "
+    add_to_cart: "Thêm vào giỏ"
   users:
     regform:
       error_messages: "Có"
@@ -59,6 +90,7 @@ en:
     password_confirm: "Nhập lại mật khẩu"
     role_admin: "Quản trị viên"
     role_user: "Người dùng"
+    role_user:  "Người dùng"
     option: "Tùy chọn"
   authors:
     show: "Hiển thị"

@@ -1,9 +1,7 @@
 class UsersController < ApplicationController
-
-  before_action :load_user, only: [:show, :edit, :update, :destroy]
-
+  before_action :load_user, except: [:index, :new, :create]
   def index
-    @users = User.info_user.order('id ASC').page(params[:page]).per(Settings.perpage)
+    @users = User.info_user.order(id: :asc).page(params[:page]).per(Settings.perpage)
   end
 
   def show

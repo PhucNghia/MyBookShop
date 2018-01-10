@@ -6,3 +6,4 @@ min_phone: 8
 max_phone: 15
 size_address: 255
 perpage: 10
+perhomepage: 8

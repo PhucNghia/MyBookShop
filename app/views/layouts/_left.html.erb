@@ -21,9 +21,7 @@
           </div>
         </div>
       </form>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><%=t(".cart")%></a></li>
-      </ul>
+      <%= link_to image_tag("carts.png"), @cart, {class: "carts"} %>
     </div>
   </nav>
 <div style="clear: both;"></div>
