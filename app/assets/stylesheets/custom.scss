@@ -22,7 +22,7 @@ $gray-table: gray;
 .nav ul li:hover a{
   background: $red-backround-hover;
 }
-img{
+.img img{
   margin-top: -15px;
   width: 60px;
   height: 50px;
@@ -31,6 +31,13 @@ img{
 /*left*/
 .left{
   padding-right: 10px;
+}
+.carts img{
+  margin-left: 700px;
+  margin-top: 5px;
+  width: 50px;
+  height: 40px;
+  display: block;
 }
 
 /*user*/
