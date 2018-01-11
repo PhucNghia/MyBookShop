@@ -1,4 +1,5 @@
 class Admin::UsersController < ApplicationController
+
   before_action :load_user, except: [:index, :new, :create]
   before_action :user_admin
 
@@ -25,6 +26,7 @@ class Admin::UsersController < ApplicationController
       render :new
     end
   end
+
 
   def edit
     @user = User.find_by_id params[:id]

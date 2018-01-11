@@ -18,7 +18,7 @@ class BookCartsController < ApplicationController
 
   def create
     @cart = current_cart
-    book = Book.find(params[:book_id])
+    book = Book.find params[:book_id]
     @book_cart = @cart.add_book(book.id)
     if @book_cart.save
       redirect_to @book_cart.cart
@@ -36,8 +36,10 @@ class BookCartsController < ApplicationController
   end
 
   def destroy
+    current_cart_id = current_cart
     if @book_cart.destroy
-      redirect_to book_carts_url
+      flash[:success] = "Xoa thanh cong"
+      redirect_to cart_path(id: current_cart_id.id)
     else
       render :index
     end

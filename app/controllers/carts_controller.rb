@@ -1,6 +1,13 @@
 class CartsController < ApplicationController
   before_action :load_cart, except: [:index, :new, :create]
 
+  def index
+    @carts = []
+    if session[:cart_id] != nil
+        @carts << Cart.find_by_id(session[:cart_id])
+    end
+  end
+
   def show
   end
 
@@ -33,7 +40,7 @@ class CartsController < ApplicationController
     @cart.destroy
     session[:cart_id] = nil
     if @cart.destroy
-      redirect_to carts_url
+      redirect_to root_path
     else
       render :index
     end

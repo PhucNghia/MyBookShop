@@ -1,0 +1,32 @@
+<h1 style="text-align: center; color: red">GIO HANG</h1>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Hinh anh</th>
+        <th>Ten</th>
+        <th>Gia</th>
+        <th>So luong</th>
+        <th>Thanh tien</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @product.each do |product| %>
+        <tr>
+          <td><%= link_to image_tag(product[0].picture) %></td>
+          <td><%= product[0].name %></td>
+          <td><%= product[0].price %> vnđ</td>
+          <td><%= product[1] %></td>
+          <td><%= product[2] %> vnđ</td>
+          <td><%= link_to "Destroy", cart_destroy_path(book_id: product[0].id), data: {confirm: "Are you sure?"} %></td>
+        </tr>
+      <% end %>
+    </tbody>
+    <td><%= link_to "Xoa gio hang", cart_destroy_path(book_id: -1), data: {confirm: "Are you sure?"} %></td>
+    <tr>
+      <td colspan="4">Tong tien</td>
+      <td><%= session[:total_price] %></td>
+      <td><%#= button_to "Thanh toan", new_order_path, method: :get %></td>
+    </tr>
+  </table>
+
