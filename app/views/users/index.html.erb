@@ -2,8 +2,6 @@
 
 <h1><%= t("users.list_users") %></h1>
 
+<%= link_to t("users.add_user"), new_user_path, class: "btn btn-primary" %>
+
 <%= render "index", user: @user %>
-
-<br>
-
-<%= link_to t("users.add_user"), new_user_path %>

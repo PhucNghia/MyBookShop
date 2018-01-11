@@ -17,14 +17,16 @@ role = 0
 20.times do |n|
   if n == 0
     role = 1
+    email = "admin@gmail.com"
   else
     role = 0
+    email = "user#{n+1}@gmail.com"
   end
   User.create(
-    name: "Phuc Ngoc Nghia#{n+1}",
-    password: "123",
-    password_confirmation: "123",
-    email: "a#{n+1}@gmail.com",
+    name: "Nguyen Van A0#{n+1}",
+    password: "123456",
+    password_confirmation: "123456",
+    email: email,
     phone: "0123456789",
     address: "HN",
     role: role
