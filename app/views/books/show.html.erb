@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @book.name %>
+</p>
+
+<p>
+  <strong>Picture:</strong>
+  <%= image_tag(@book.picture)%>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @book.price %>
+</p>
+
+<p>
+  <strong>Author:</strong>
+  <% @joinbook.where(id: @book.id).each do |j| %>
+      <%= j.author.name %> <br>
+    <% end %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <% if @book.status %>
+    Con hang
+  <% end %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @book.category.name %>
+</p>
+
+<p>
+  <strong>Publisher:</strong>
+  <%= @book.publisher.name %>
+</p>
+
+<% if logged_in? && current_user.role? %>
+  <%= link_to "Edit", edit_book_path(@book) %> |
+<% end %>
+<%= link_to "Back", root_path %>
