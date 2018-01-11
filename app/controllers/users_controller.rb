@@ -51,15 +51,15 @@ class UsersController < ApplicationController
 
   private
 
-    def load_user
-      @user = User.find_by_id params[:id]
-      return if @user
-      flash[:danger] = t "controller.users_controller.no_account"
-      redirect_to root_path
-    end
+  def load_user
+    @user = User.find_by_id params[:id]
+    return if @user
+    flash[:danger] = t "controller.users_controller.no_account"
+    redirect_to root_path
+  end
 
-    def user_params
-      params.require(:user).permit :name, :password, :password_confirmation,
-        :email, :phone, :address, :role
-    end
+  def user_params
+    params.require(:user).permit :name, :password, :password_confirmation,
+      :email, :phone, :address, :role
+  end
 end

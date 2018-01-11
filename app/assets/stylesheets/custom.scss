@@ -13,7 +13,7 @@ $alto-color: #DDD;
 
 /*header*/
 .nav a{
-  color: white !important;
+  color: $white-nav-a !important;
 }
 .navbar{
   background: $bue-backround-nav !important;

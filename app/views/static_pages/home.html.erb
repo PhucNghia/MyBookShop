@@ -5,16 +5,19 @@
         <% @books.each do |book| %>
             <li>
                 <div class="list1img">
-                    <%= link_to image_tag(book.picture), "#" %>
+                    <%= link_to image_tag(book.picture), bookshow_path(id: book) %>
                 </div>
                 <div class="list1a1">
                     <a href="#">
                         <b><%= book.name %></b>
                     </a>
                 </div>
-                <div class="priceold"><b><%= t "static_pages.price" %></b></div>
-                <div class="publishers"><b><%= t "static_pages.publisher" %></b> </div>
-                <div class="category"><b><%= t "static_pages.category" %></b></div>
+                <div class="priceold"><b><%= t "static_pages.price" %></b>
+                    <%= book.price %><%= t "static_pages.vnd" %></div>
+                <div class="publishers"><b><%= t "static_pages.publisher" %></b>
+                    <%= book.publisher.name %></b></div>
+                <div class="category"><b><%= t "static_pages.category" %></b>
+                    <%= book.category.name %></b></div>
                 <br>
                 <%= button_to t("static_pages.add_to_cart"), book_carts_path(book_id: book.id),
                     class: "btn btn-primary" %>
@@ -24,4 +27,3 @@
     </ul>
 </div>
 <%= paginate @books, theme: "twitter-bootstrap-3" %>
-

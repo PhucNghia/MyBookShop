@@ -63,13 +63,15 @@ en:
     password: "Mật khẩu"
   static_pages:
     price: "Giá: "
+    vnd: " vnđ"
     category: "Thể loại: "
     publisher: "NXB: "
     add_to_cart: "Thêm vào giỏ"
   users:
-    regform:
+    form:
       error_messages: "Có"
       error: "lỗi, mời bạn nhập lại"
+      account: "Tài khoản"
     list_users: "Danh sách người dùng"
     name: "Tên"
     password: "Mật khẩu"
