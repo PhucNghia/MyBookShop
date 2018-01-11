@@ -1,6 +1,6 @@
 class CategoriesController < ApplicationController
   before_action :load_category, except: [:index, :new, :create]
-
+  before_action :index_categories, only: [:index, :show, :edit]
   def index
     @categories = Category.info_category.order(id: :asc).page(params[:page]).
       per(Settings.perpage)
@@ -55,5 +55,11 @@ class CategoriesController < ApplicationController
 
   def category_params
     params.require(:category).permit :name
+  end
+
+  def index_categories
+    unless current_user && current_user.admin?
+      redirect_to root_path
+    end
   end
 end

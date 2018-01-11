@@ -1,12 +1,14 @@
 <%= form_with(model: author, local: true) do |form| %>
   <% if author.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(author.errors.count, "error") %> prohibited this author from being saved:</h2>
-
+      <div class="alert alert-danger">
+       <%= t("users.form.error_messages") %>
+          <%= @author.errors.count %> <%= t("users.form.error") %>.
+      </div>
       <ul>
-      <% author.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% @author.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>

@@ -1,9 +1,9 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
+  <strong><%= t "users.name" %>:</strong>
   <%= @author.name %>
 </p>
 
-<%= link_to "Edit", edit_author_path(@author) %> |
-<%= link_to "Back", authors_path %>
+<%= link_to t("users.edit1"), edit_author_path(@author), class: "btn btn-primary"%>
+<%= link_to t("users.back"), authors_path, class: "btn btn-primary" %>

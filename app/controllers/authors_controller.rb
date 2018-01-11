@@ -1,6 +1,6 @@
 class AuthorsController < ApplicationController
   before_action :load_author, except: [:index, :new, :create]
-
+  before_action :index_authors, only: [:index, :show, :edit]
   def index
     @authors = Author.info_author.order(id: :asc).page(params[:page]).
       per(Settings.perpage)
@@ -55,5 +55,11 @@ class AuthorsController < ApplicationController
 
   def author_params
     params.require(:author).permit :name
+  end
+
+  def index_authors
+    unless current_user && current_user.admin?
+      redirect_to root_path
+    end
   end
 end

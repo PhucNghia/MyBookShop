@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180118064333) do
+ActiveRecord::Schema.define(version: 20180120183936) do
 
   create_table "authors", force: :cascade do |t|
     t.string "name"
@@ -25,15 +25,6 @@ ActiveRecord::Schema.define(version: 20180118064333) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "book_carts", force: :cascade do |t|
-    t.integer "cart_id"
-    t.integer "book_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "quantity", default: 1
-    t.integer "order_id"
-  end
-
   create_table "books", force: :cascade do |t|
     t.string "name"
     t.string "picture"
@@ -45,23 +36,28 @@ ActiveRecord::Schema.define(version: 20180118064333) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "carts", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  create_table "order_items", force: :cascade do |t|
+    t.integer "order_id"
+    t.integer "book_id"
+    t.integer "amount"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "orders", force: :cascade do |t|
+    t.integer "user_id"
     t.string "name"
     t.string "phone"
     t.text "address"
     t.string "email"
-    t.string "pay_type"
+    t.integer "all_product"
+    t.integer "all_price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

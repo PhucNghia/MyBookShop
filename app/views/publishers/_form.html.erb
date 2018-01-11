@@ -1,12 +1,14 @@
 <%= form_with(model: publisher, local: true) do |form| %>
   <% if publisher.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(publisher.errors.count, "error") %> prohibited this publisher from being saved:</h2>
-
+      <div class="alert alert-danger">
+       <%= t("users.form.error_messages") %>
+          <%= @publisher.errors.count %> <%= t("users.form.error") %>.
+      </div>
       <ul>
-      <% publisher.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% @publisher.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>

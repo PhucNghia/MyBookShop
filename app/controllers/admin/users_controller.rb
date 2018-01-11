@@ -1,7 +1,7 @@
 class Admin::UsersController < ApplicationController
 
   before_action :load_user, except: [:index, :new, :create]
-  before_action :user_admin
+  before_action :user_admin, only: [:index]
 
   def index
     @q = User.ransack params[:q]
@@ -26,7 +26,6 @@ class Admin::UsersController < ApplicationController
       render :new
     end
   end
-
 
   def edit
     @user = User.find_by_id params[:id]

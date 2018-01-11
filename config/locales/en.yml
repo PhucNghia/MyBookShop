@@ -17,6 +17,13 @@ en:
       update_category: "Cập nhật thể loại thành công"
       delete_category: "Xóa thể loại thành công"
       no_find_category: "Không tìm thấy thể loại"
+    order_controller:
+      before_signup: "Mời bạn đăng nhập trước khi thanh toán"
+      success_order: "Đặt hàng thành công"
+      fail_order: "Đặt hàng thất bại"
+      update_order: "Cập nhật đơn hàng thành công"
+      delete_order: "Xóa đơn hàng thành công"
+      no_find_order: "Không tìm thấy đơn hàng"
     publishers_controller:
       create_publisher: "Thêm NXB thành công"
       update_publisher: "Cập nhật NXB thành công"
@@ -28,8 +35,8 @@ en:
       success_update: "Cập nhật thành công"
       success_delete: "Đã xóa người dùng"
       danger_cant_delete: "Không thể xóa tài khoản này"
-    sessions_controller:
-      error_login: "User/password không đúng"
+    sessions_carts_controller:
+      delete_product: "Xóa sản phẩm thành công"
   layouts:
     header:
       about: "Giới thiệu"
@@ -42,6 +49,7 @@ en:
       manage: "Quản lý"
       users: "Quản lý người dùng"
       books: "Quản lý sách"
+      order: "Quản lý đơn hàng"
     left:
       category: DANH MỤC SÁCH
       literature: "Sách văn học"
@@ -107,3 +115,40 @@ en:
     add: "Thêm tác gỉa"
     confirm_delete: "Bạn có chắc chắn xóa tác gỉa không?"
     add_author: "Thêm tác gỉa"
+  books:
+    product: "Danh sách sản phẩm"
+    picture: "Hình ảnh"
+    name: "Tên"
+    price: "Giá"
+    status: "Trạng thái"
+    category: "Thể loại"
+    publisher: "NXB"
+    author: "Tác giả"
+    option: "Tùy chọn"
+    add_book: "Thêm sách"
+    update_book: "Cập nhật sách"
+    status_true: "Còn hàng"
+    status_false: "Hết hàng"
+  session_carts:
+    cart: "GIỎ HÀNG"
+    empty_cart: "Giỏ hàng rỗng"
+    picture: "Hình ảnh"
+    name: "Tên"
+    price: "Giá"
+    amount: "Số lượng"
+    total_price: "Thành tiền"
+    delete_product: "Xóa hàng"
+    vnd: " vnđ"
+    total: "Tổng"
+    pay: "Thanh toán"
+    delete_cart: "Xóa giỏ hàng"
+  orders:
+    code_order: "Mã đơn hàng"
+    create_order: "Đơn hàng"
+    edit_order: "Cập nhật đơn hàng"
+    checkout: "Đặt hàng"
+    list_order: "Danh sách đơn hàng"
+    product: "Sản phẩm"
+    amount: "Số lượng"
+    date: "Ngày mua"
+    total_price: "Tổng tiền"

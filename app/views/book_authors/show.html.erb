@@ -10,5 +10,5 @@
   <%= @book_author.author_id %>
 </p>
 
-<%= link_to "Edit", edit_book_author_path(@book_author) %> |
-<%= link_to "Back", book_authors_path %>
+<%= link_to t("users.edit1"), edit_book_author_path(@book_author), class: "btn btn-primary"%>
+<%= link_to t("users.back"), book_authors_path, class: "btn btn-primary" %>
