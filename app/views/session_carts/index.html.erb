@@ -1,32 +1,41 @@
-<h1 style="text-align: center; color: red">GIO HANG</h1>
-  <table class="table table-bordered">
+<h1 style="text-align: center; color: red"><%= t "session_carts.cart" %></h1>
+  <table class="table table-bordered" style="text-align: center;">
     <thead>
       <tr>
-        <th>Hinh anh</th>
-        <th>Ten</th>
-        <th>Gia</th>
-        <th>So luong</th>
-        <th>Thanh tien</th>
+        <th><%= t "session_carts.picture" %></th>
+        <th><%= t "session_carts.name" %></th>
+        <th><%= t "session_carts.price" %></th>
+        <th><%= t "session_carts.amount" %></th>
+        <th><%= t "session_carts.total_price" %></th>
+        <th><%= t "session_carts.delete_product" %></th>
       </tr>
     </thead>
 
     <tbody>
-      <% @product.each do |product| %>
+      <% if session[:current_book].nil? %>
+        <h2 style="text-align: center; color: blue"><%= t "session_carts.empty_cart" %></h2>
+      <% else %>
+        <% session[:current_book].each do |key, book| %>
+          <tr>
+            <td><%= link_to image_tag(book["picture"]), book_path(book["id"]) %></td>
+            <td><%= book["name"] %></td>
+            <td><%= book["price"] %> <%= t "session_carts.vnd" %></td>
+            <td><%= book["quantity"] %></td>
+            <td><%= book["total_price"] %> <%= t "session_carts.vnd" %></td>
+            <td><%= link_to image_tag("delete.png"),
+              cart_destroy_path(book_id: book["id"]), class: "option",
+              data: {confirm: t("users.confirm_delete")} %></td>
+          </tr>
+        <% end %>
         <tr>
-          <td><%= link_to image_tag(product[0].picture) %></td>
-          <td><%= product[0].name %></td>
-          <td><%= product[0].price %> vnđ</td>
-          <td><%= product[1] %></td>
-          <td><%= product[2] %> vnđ</td>
-          <td><%= link_to "Destroy", cart_destroy_path(book_id: product[0].id), data: {confirm: "Are you sure?"} %></td>
+          <td colspan="3" style="text-align: center;"><b><%= t "session_carts.total" %> </b></td>
+          <td><%= session[:all_product] %> </td>
+          <td><%= session[:all_price] %> vnđ</td>
+          <td><%= link_to t("session_carts.delete_cart"), cart_destroy_path(book_id: -1), class: "btn btn-primary", data: {confirm: "Are you sure?"}  %></td>
+        <tr>
+          <td colspan="6"><%= link_to t("session_carts.pay"), new_order_path, class: "btn btn-primary" %></td>
+        </tr>
         </tr>
       <% end %>
     </tbody>
-    <td><%= link_to "Xoa gio hang", cart_destroy_path(book_id: -1), data: {confirm: "Are you sure?"} %></td>
-    <tr>
-      <td colspan="4">Tong tien</td>
-      <td><%= session[:total_price] %></td>
-      <td><%#= button_to "Thanh toan", new_order_path, method: :get %></td>
-    </tr>
   </table>
-

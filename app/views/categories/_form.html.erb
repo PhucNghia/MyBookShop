@@ -1,12 +1,14 @@
 <%= form_with(model: category, local: true) do |form| %>
   <% if category.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(category.errors.count, "error") %> prohibited this category from being saved:</h2>
-
+      <div class="alert alert-danger">
+       <%= t("users.form.error_messages") %>
+          <%= @category.errors.count %> <%= t("users.form.error") %>.
+      </div>
       <ul>
-      <% category.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% @category.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>

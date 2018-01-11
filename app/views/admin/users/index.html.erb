@@ -2,14 +2,15 @@
 
 <h1><%= t("users.list_users") %></h1>
 
-<%= search_form_for [:admin, @q], remote: true do |f| %>
-
-  <%= f.label t "users.name" %>
-  <%= f.text_field :name_cont %>
-
-  <%= f.submit %>
-<% end %>
-<%= link_to t("users.add_user"), new_admin_user_path, class: "btn btn-primary" %>
+<%= link_to t("users.add_user"), new_admin_user_path, class: "btn btn-primary ",
+  style: "float: right; magin-right: 20px;" %>
+<div class="search", style="padding-bottom: 5px">
+  <%= search_form_for [:admin, @q], remote: true do |f| %>
+    <%= f.label t "users.name" %>
+    <%= f.text_field :name_cont %>
+    <%= f.submit %>
+  <% end %>
+</div>
 
 <div id="result">
   <%= render "index", user: @user %>

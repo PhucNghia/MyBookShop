@@ -1,40 +1,48 @@
 class OrdersController < ApplicationController
-  before_action :load_order, only: [:show, :edit, :update, :destroy]
+  before_action :load_order, except: [:index, :new, :create]
+  before_action :join_book_order, only: [:index, :show]
+  before_action :check_order, only: [:new, :create]
 
   def index
-    @orders = Order.all
+    @orders = Order.info_order.order(id: :asc).page(params[:page]).
+      per(Settings.perpage)
   end
 
   def show
   end
 
   def new
-    @cart = current_cart
-    if @cart.book_carts.empty?
-        redirect_to '/', :notice => 'Your cart is empty'
-        return
+    if current_user.nil?
+      flash[:notice] = t "controller.order_controller.before_signup"
+      redirect_to new_user_session_path
+    else
+      @order = Order.new
     end
-    @order = Order.new
   end
 
   def edit
   end
 
   def create
-    @order = Order.new(order_params)
-    # @order.add_book_carts_from_cart(current_cart)
-
+    @order = Order.new order_params
+    @order.add_amount_price session[:all_product], session[:all_price]
     if @order.save
-      # Cart.destroy(session[:cart_id])
-        # session[:cart_id] = nil
-        redirect_to root_path
+      session[:current_book].each do |key, book|
+        @order.add_order_item @order.id, book["id"], book["quantity"]
+      end
+      flash[:success] = t "controller.order_controller.success_order"
+      session[:all_product] = nil
+      session[:all_price] = nil
+      delete_session_cart
     else
+      flash[:dange] = t "controller.order_controller.fail_order"
       render :new
     end
   end
 
   def update
-    if @order.update(order_params)
+    if @order.update_attributes order_params
+      flash[:success] = t "controller.order_controller.update_order"
       redirect_to @order
     else
       render :edit
@@ -43,6 +51,7 @@ class OrdersController < ApplicationController
 
   def destroy
     if @order.destroy
+      flash[:success] = t "controller.order_controller.delete_order"
       redirect_to orders_url
     else
       render :index
@@ -52,10 +61,23 @@ class OrdersController < ApplicationController
   private
 
   def load_order
-    @order = Order.find(params[:id])
+    @order = Order.find_by_id params[:id]
+    return if @order
+    flash[:danger] = t "controller.order_controller.no_find_order"
   end
 
   def order_params
-    params.require(:order).permit(:name, :phone, :address, :email, :pay_type)
+    params.require(:order).permit :user_id, :name, :phone, :address, :email,
+      :all_product, :all_price
+  end
+
+  def join_book_order
+    @join_book_order = OrderItem.joins(:book, :order)
+  end
+
+  def check_order
+    if session[:current_book].nil?
+      redirect_to root_path
+    end
   end
 end

@@ -1,47 +1,54 @@
 <%= form_with(model: book, local: true) do |form| %>
-  <% if book.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(book.errors.count, "error") %> prohibited this book from being saved:</h2>
-
-      <ul>
-      <% book.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-4">
+      <% if book.errors.any? %>
+        <div id="error_explanation">
+          <div class="alert alert-danger">
+           <%= t("users.form.error_messages") %>
+              <%= @book.errors.count %> <%= t("users.form.error") %>.
+          </div>
+          <ul>
+            <% @book.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
       <% end %>
-      </ul>
+
+      <div class="field">
+        <%= form.label :name %>
+        <%= form.text_field :name, id: :book_name %>
+      </div>
+
+      <div class="field">
+        <%= form.label :picture %>
+        <%= form.text_field :picture, id: :book_picture %>
+      </div>
+
+      <div class="field">
+        <%= form.label :price %>
+        <%= form.text_field :price, id: :book_price %>
+      </div>
+
+      <div class="field">
+        <%= form.label :status %>
+        <%= form.check_box :status, id: :book_status %>
+      </div>
+
+      <div class="field">
+        <%= form.label :category_id %>
+        <%= form.number_field :category_id, id: :book_category_id %>
+      </div>
+
+      <div class="field">
+        <%= form.label :publisher_id %>
+        <%= form.number_field :publisher_id, id: :book_publisher_id %>
+      </div>
+
+      <div class="actions">
+        <%= form.submit t("books.add_book"), class: "btn btn-primary" %>
+        <%= link_to t("users.back"), books_path, class: "btn btn-primary" %>
+      </div>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name, id: :book_name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :picture %>
-    <%= form.text_field :picture, id: :book_picture %>
-  </div>
-
-  <div class="field">
-    <%= form.label :price %>
-    <%= form.text_field :price, id: :book_price %>
-  </div>
-
-  <div class="field">
-    <%= form.label :status %>
-    <%= form.check_box :status, id: :book_status %>
-  </div>
-
-  <div class="field">
-    <%= form.label :categories_id %>
-    <%= form.number_field :category_id, id: :book_category_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :publisher_id %>
-    <%= form.number_field :publisher_id, id: :book_publisher_id %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
   </div>
 <% end %>

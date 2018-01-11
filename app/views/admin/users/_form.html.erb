@@ -1,10 +1,10 @@
 <%= form_for [:admin, @user] do |form| %>
   <div class="row">
-    <div class="col-md-6 col-md-offset-3">
+    <div class="col-md-6 col-md-offset-4">
       <% if @user.errors.any? %>
         <div id="error_explanation">
           <div class="alert alert-danger">
-           <%= t("users.regform.error_messages") %>
+           <%= t("users.form.error_messages") %>
               <%= @user.errors.count %> <%= t("users.form.error") %>.
           </div>
           <ul>
@@ -44,7 +44,7 @@
         <%= form.label t "users.address" %>
         <%= form.text_field :address, id: :address %>
       </div>
-      <% if @submit %>
+      <% if @check_new %>
         <%= form.submit t("users.submit"), class: "btn btn-primary" %>
       <% else %>
         <%= form.submit t("users.update"), class: "btn btn-primary" %>

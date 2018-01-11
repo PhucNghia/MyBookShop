@@ -12,6 +12,15 @@ $white-color: #FFFFFF;
 $alto-color: #DDD;
 $white-nav-a: white;
 $earls-green-color: #B0AF35;
+$swiss-coffee: #faf6f6;
+
+/*body*/
+body{
+  background: $swiss-coffee !important;
+}
+th{
+  text-align: center;
+}
 
 /*header*/
 .nav a{
@@ -72,9 +81,25 @@ table, th, table tr td{
   font-size: 20px;
 }
 #search .btn{
-  background: $earls-green-color
+  background: $earls-green-color;
+}
+.user{
+  color: red !important;
 }
 .sort{
   color: $white-nav-a !important;
   margin-right: 20px;
+}
+
+/* product */
+.show_img_book{
+  float: left;
+}
+.show_img_book img{
+  width: 200px;
+  height: 300px;
+}
+.show_conent_book{
+  margin-left: 220px;
+  padding-bottom: 20px;
 }

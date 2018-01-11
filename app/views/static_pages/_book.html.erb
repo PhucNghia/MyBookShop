@@ -1,11 +1,9 @@
-<li>
+<li style="margin-left: 20px;">
   <div class="list1img">
     <%= link_to image_tag(book.picture), book_path(id: book.id) %>
   </div>
   <div class="list1a1">
-    <a href="#">
-      <b><%= book.name %></b>
-    </a>
+      <h4><strong><%= book.name %></strong></h4>
   </div>
   <div class="priceold"><b><%= t "static_pages.price" %></b>
     <%= book.price %><%= t "static_pages.vnd" %></div>
@@ -14,7 +12,7 @@
   <div class="category"><b><%= t "static_pages.category" %></b>
     <%= book.category.name %></b></div>
   <br>
-  <%= button_to t("static_pages.add_to_cart"), book_carts_path(book_id: book.id),
-    class: "btn btn-primary" %>
+  <%= link_to t("static_pages.add_to_cart"),
+    cart_create_path(book_id: book.id), class: "btn btn-primary" %>
   <br><br>
 </li>

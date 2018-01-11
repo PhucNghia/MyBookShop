@@ -1,6 +1,3 @@
-<h1>Editing Order</h1>
+<h1><%= t "orders.edit_order" %></h1>
 
-<%= render 'form', order: @order %>
-
-<%= link_to 'Show', @order %> |
-<%= link_to 'Back', orders_path %>
+<%= render "form", order: @order %>

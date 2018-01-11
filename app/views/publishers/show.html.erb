@@ -1,11 +1,9 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>ten sach:</strong>
-  <%= @publisher.books.name %>
   <strong>Name:</strong>
   <%= @publisher.name %>
 </p>
 
-<%= link_to "Edit", edit_publisher_path(@publisher) %> |
-<%= link_to "Back", publishers_path %>
+<%= link_to t("users.edit1"), edit_publisher_path(@publisher), class: "btn btn-primary"%>
+<%= link_to t("users.back"), publishers_path, class: "btn btn-primary" %>

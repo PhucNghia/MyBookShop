@@ -1,45 +1,44 @@
 <p id="notice"><%= notice %></p>
+<div class="row" style="margin-top: 80px;">
+    <div class="col-md-6 col-md-offset-2">
+    <div class="show_img_book">
+      <%= image_tag(@book.picture) %>
+    </div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @book.name %>
-</p>
+    <div class="show_conent_book" style="font-size: 20px;">
+      <h3 style="color: red;"><strong><%= @book.name %></strong></h3><br/>
 
-<p>
-  <strong>Picture:</strong>
-  <%= image_tag(@book.picture)%>
-</p>
+      <strong><%= t "static_pages.price" %></strong>
+      <%= @book.price %> <br/><br/>
 
-<p>
-  <strong>Price:</strong>
-  <%= @book.price %>
-</p>
+      <strong><%= t "books.author" %>:</strong> <br/> <br/>
+      <ul style="font-size: 18px;">
+        <% @join_book_author.where(book_id: @book.id).each do |j| %>
+          <li><%= j.author.name %></li>
+        <% end %>
+      </ul> <br/>
 
-<p>
-  <strong>Author:</strong>
-  <% @joinbook.where(id: @book.id).each do |j| %>
-      <%= j.author.name %> <br>
+      <strong><%= t "books.status" %>:</strong>
+      <% if @book.status %>
+        <%= t "books.status_true" %>
+      <% else %>
+        <%= t "books.status_false" %>
+      <% end %> <br/><br/>
+
+      <strong><%= t "static_pages.category" %></strong>
+      <%= @book.category.name %><br/><br/>
+
+      <strong><%= t "static_pages.publisher" %></strong>
+      <%= @book.publisher.name %><br/><br/>
+    </div>
+
+    <% if user_signed_in? && current_user.admin? %>
+      <%= link_to t("users.edit1"), edit_book_path(@book), class: "btn btn-primary"%>
+      <%= link_to t("users.back"), :back, class: "btn btn-primary" %>
+    <% else %>
+      <%= link_to t("static_pages.add_to_cart"),
+        cart_create_path(book_id: @book.id), class: "btn btn-primary" %>
+      <%= link_to t("users.back"), :back, class: "btn btn-primary" %>
     <% end %>
-</p>
-
-<p>
-  <strong>Status:</strong>
-  <% if @book.status %>
-    Con hang
-  <% end %>
-</p>
-
-<p>
-  <strong>Category:</strong>
-  <%= @book.category.name %>
-</p>
-
-<p>
-  <strong>Publisher:</strong>
-  <%= @book.publisher.name %>
-</p>
-
-<% if user_signed_in? && current_user.admin? %>
-  <%= link_to t("users.edit1"), edit_book_path(@book) %> |
-<% end %>
-<%= link_to t("users.back"), root_path %>
+  </div>
+</div>

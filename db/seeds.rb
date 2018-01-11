@@ -11,10 +11,12 @@ Book.delete_all
 Publisher.delete_all
 Category.delete_all
 BookAuthor.delete_all
+Order.delete_all
+OrderItem.delete_all
 
 # User table
 role = 0
-20.times do |n|
+15.times do |n|
   if n == 0
     role = 1
     email = "admin@gmail.com"
@@ -34,23 +36,23 @@ role = 0
 end
 
 # Publisher table
-20.times do |n|
+15.times do |n|
   Publisher.create name: "Nha xuat ban 0#{n+1}"
 end
 
 # Category table
-20.times do |n|
+15.times do |n|
   Category.create name: "The loai 0#{n+1}"
 end
 
 # Author table
-20.times do |n|
+15.times do |n|
   Author.create name: "Tac gia 0#{n+1}"
 end
 
 # Book table
 i = 0
-20.times do |n|
+15.times do |n|
   if n % 3 == 0
     i = 0
   end
@@ -67,7 +69,7 @@ i = 0
 end
 
 # Book_author table
-20.times do |n|
+15.times do |n|
   BookAuthor.create(
     author_id: n+1,
     book_id: n+1
