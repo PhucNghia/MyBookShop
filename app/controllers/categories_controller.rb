@@ -2,7 +2,7 @@ class CategoriesController < ApplicationController
   before_action :load_category, except: [:index, :new, :create]
 
   def index
-    @categories = Category.info_category.order(id: :isc).page(params[:page]).
+    @categories = Category.info_category.order(id: :asc).page(params[:page]).
       per(Settings.perpage)
   end
 

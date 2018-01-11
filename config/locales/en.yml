@@ -62,6 +62,7 @@ en:
     email: "Nhập email"
     pass: "Nhập mật khẩu"
     password: "Mật khẩu"
+    remember_me: "Nhớ mật khẩu"
   static_pages:
     price: "Giá: "
     vnd: " vnđ"
@@ -76,6 +77,8 @@ en:
     list_users: "Danh sách người dùng"
     name: "Tên"
     password: "Mật khẩu"
+    current_password: "Mật khẩu hiện tại"
+    leave_blank: "(Để trống nếu bạn không muốn thay đổi nó)"
     email: "Email"
     phone: "Số điện thoại"
     address: "Địa chỉ"

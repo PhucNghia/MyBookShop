@@ -39,7 +39,7 @@
   <%= @book.publisher.name %>
 </p>
 
-<% if logged_in? && current_user.role? %>
-  <%= link_to "Edit", edit_book_path(@book) %> |
+<% if user_signed_in? && current_user.admin? %>
+  <%= link_to t("users.edit1"), edit_book_path(@book) %> |
 <% end %>
-<%= link_to "Back", root_path %>
+<%= link_to t("users.back"), root_path %>

@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-2 col-md-offset-4 centered">
+      <h2 style="text-align: center; padding-bottom: 20px; color: red;">
+        <%= t "sessions.login" %>
+      </h2>
+
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="field">
+          <%= f.label t("sessions.email") %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email",
+            placeholder: t("sessions.email") %>
+        </div>
+
+        <div class="field">
+          <%= f.label t("sessions.pass") %>
+          <%= f.password_field :password, autocomplete: "off",
+            placeholder: t("sessions.password") %>
+        </div>
+
+        <% if devise_mapping.rememberable? -%>
+          <div class="field">
+            <%= f.check_box :remember_me %>
+            <%= f.label t("sessions.remember_me") %>
+          </div>
+        <% end -%>
+
+        <div class="actions">
+          <%= f.submit t("sessions.login"), class: "btn btn-primary" %>
+        </div>
+      <% end %>
+
+      <%= render "users/shared/links" %>
+    </div>
+  </div>
+</div>
