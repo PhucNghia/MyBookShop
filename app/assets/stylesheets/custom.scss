@@ -8,6 +8,8 @@ $red-backround-hover: red;
 $red-color-h1: red;
 $black-navbar: black;
 $gray-table: gray;
+$white-color: #FFFFFF;
+$alto-color: #DDD;
 
 /*header*/
 .nav a{
@@ -50,4 +52,14 @@ h1{
 }
 table, th, table tr td{
   border: 2px solid $gray-table !important;
+}
+.btn{
+  color: $white-color !important;
+}
+.option img:hover{
+  background: $alto-color;
+}
+.option img{
+  width: 30px;
+  height: 30px;
 }
