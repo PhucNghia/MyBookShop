@@ -34,29 +34,23 @@ role = 0
 end
 
 # Publisher table
-8.times do |n|
-  Publisher.create(
-    name: "Nha xuat ban 0#{n+1}"
-  )
+20.times do |n|
+  Publisher.create name: "Nha xuat ban 0#{n+1}"
 end
 
 # Category table
-8.times do |n|
-  Category.create(
-    name: "The loai 0#{n+1}"
-  )
+20.times do |n|
+  Category.create name: "The loai 0#{n+1}"
 end
 
 # Author table
-8.times do |n|
-  Author.create(
-    name: "Tac gia 0#{n+1}"
-  )
+20.times do |n|
+  Author.create name: "Tac gia 0#{n+1}"
 end
 
 # Book table
 i = 0
-8.times do |n|
+20.times do |n|
   if n % 3 == 0
     i = 0
   end
@@ -73,7 +67,7 @@ i = 0
 end
 
 # Book_author table
-8.times do |n|
+20.times do |n|
   BookAuthor.create(
     author_id: n+1,
     book_id: n+1

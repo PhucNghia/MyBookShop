@@ -1,0 +1,6 @@
+<%= search_form_for @q,remote: true do |f| %>
+  <%= f.text_field :name_cont, class: "input" %>
+  <%= f.submit t(".search"), class: "btn" %>
+<% end %>
+<%= sort_link @q, :name, {}, remote: true, class: "sort" %>
+<%= sort_link @q, :price, {}, remote: true, class: "sort" %>

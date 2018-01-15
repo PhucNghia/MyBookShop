@@ -17,7 +17,7 @@
         <td><%= user.email %></td>
         <td><%= user.phone %></td>
         <td><%= user.address %></td>
-        <% if user.role == 1%>
+        <% if user.role? %>
           <td><%= t "users.role_admin"  %></td>
         <% else %>
           <td><%= t "users.role_user"  %></td>
@@ -30,4 +30,6 @@
     <% end %>
   </tbody>
 </table>
-<%= paginate @users, theme: "twitter-bootstrap-3" %>
+<div id="paginator">
+  <%= paginate @users, theme: "twitter-bootstrap-3", remote: true %>
+</div>
