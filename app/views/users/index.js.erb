@@ -1,0 +1,2 @@
+$('#result').html('<%= j render "index", user: @user %>');
+$('#paginator').html('<%= j paginate(@users, theme: "twitter-bootstrap-3" ,remote: true).to_s %>');

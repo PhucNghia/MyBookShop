@@ -3,7 +3,9 @@ class UsersController < ApplicationController
   before_action :user_admin
 
   def index
-    @users = User.info_user.order(id: :asc).page(params[:page]).per(Settings.perpage)
+    @q = User.ransack params[:q]
+    @users = @q.result(distinct: true).order(id: :asc).page(params[:page])
+      .per Settings.perpage
   end
 
   def show

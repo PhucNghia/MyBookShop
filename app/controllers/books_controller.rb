@@ -3,7 +3,9 @@ class BooksController < ApplicationController
   before_action :join_book, only: [:index, :show]
 
   def index
-    @books = Book.info_book.order(id: :asc).page(params[:page]).per(Settings.perpage)
+    @q = Book.ransack params[:q]
+    @books = @q.result(distinct: true).order(id: :asc).page(params[:page])
+      .per Settings.perhomepage
   end
 
   def show

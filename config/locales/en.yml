@@ -50,11 +50,12 @@ en:
       math: "Sách toán học"
       novel: "Tiểu thuyết"
       cart: "Giỏ hàng"
-      seach: "Tìm kiếm"
     footer:
       home: "Trang chủ"
       about: "Giới thiệu"
       contact: "Liên hệ"
+    search:
+      search: "Tìm kiếm"
   sessions:
     login: "Đăng nhập"
     address_email: "Nhập địa chỉ email"

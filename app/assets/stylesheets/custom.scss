@@ -11,6 +11,7 @@ $gray-table: gray;
 $white-color: #FFFFFF;
 $alto-color: #DDD;
 $white-nav-a: white;
+$earls-green-color: #B0AF35;
 
 /*header*/
 .nav a{
@@ -37,10 +38,10 @@ $white-nav-a: white;
 }
 .carts img{
   margin-left: 700px;
-  margin-top: 5px;
-  width: 50px;
-  height: 40px;
-  display: block;
+  margin-top: -58px;
+  width: 71px;
+  height: 62px;
+  display: block
 }
 
 /*user*/
@@ -63,4 +64,17 @@ table, th, table tr td{
 .option img{
   width: 30px;
   height: 30px;
+}
+#search .input{
+  width: 600px;
+  height: 35px;
+  margin-top: 6px;
+  font-size: 20px;
+}
+#search .btn{
+  background: $earls-green-color
+}
+.sort{
+  color: $white-nav-a !important;
+  margin-right: 20px;
 }
